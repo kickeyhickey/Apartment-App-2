@@ -18,9 +18,28 @@ class App extends Component {
   constructor(props) {
     super(props)
       this.state = {
-        apartments: mockData
+        apartments: []
       }
   }
+
+    componentDidMount(){
+      this.readApartment()
+    }
+
+    readApartment = () => {
+      fetch("/apartments")
+      .then(response => {
+        return response.json()
+      })
+      .then(payload => {
+        this.setState({ apartments: payload })
+      })
+      .catch(errors => {
+        console.log("readApartment errors:", errors);
+      })
+    }
+
+
 
     createApartment = (apartment) => {
       console.log("here",apartment);
