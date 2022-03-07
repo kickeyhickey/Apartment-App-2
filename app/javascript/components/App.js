@@ -43,6 +43,8 @@ class App extends Component {
 
 
           <Route  path="/apartmentnew" component={ApartmentNew} />
+
+          
          <Route path="/about" component={About} /> 
         </Switch>
       </Router>
