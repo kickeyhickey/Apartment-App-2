@@ -13,8 +13,6 @@ export default class ApartmentIndex extends Component {
 
       <br />
 
-      <h3>Meet the Cats!</h3>
-
       <br />
       <Col sm="6">
        {apartments.map(apartment => {
@@ -32,6 +30,11 @@ export default class ApartmentIndex extends Component {
          )
         })}
          </Col>
+         <NavLink to={`apartmentnew`}>
+           <Button>
+              Add A Property
+            </Button>
+          </NavLink>
             
      </>
     )

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { Form, FormGroup, Label, Input } from 'reactstrap'
+import { Form, FormGroup, Label, Input, Button } from 'reactstrap'
+import { Redirect } from 'react-router-dom'
 
 export default class ApartmentNew extends Component {
   constructor(props){
@@ -15,11 +16,25 @@ export default class ApartmentNew extends Component {
         bedrooms: "",
         bathrooms: "",
         pets: ""        
-      }
+      },
+      submitted: false
     }
   }
+
+  handleChange = (e) => {
+    const { newApartment } = this.state
+    newApartment[e.target.name] = e.target.value
+    this.setState({ newApartment: newApartment })
+  }
+
+  handleSubmit = () => {
+    this.props.createApartment(this.state.newApartment)
+    this.setState({ submitted: true })
+  }
+
   render() {
     return (
+      <>
       <Form>
           <FormGroup>
             <Label for="street">
@@ -120,7 +135,16 @@ export default class ApartmentNew extends Component {
               value={this.state.newApartment.pets}
             />
           </FormGroup>
+          <Button
+            name="submit"
+            onClick={this.handleSubmit}
+             >
+            Create a New Property
+          </Button>
         </Form>
+        
+        {this.state.submitted && <Redirect to="/apartmentindex" />}
+        </>
     )
   }
 }

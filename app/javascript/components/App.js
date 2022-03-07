@@ -20,6 +20,11 @@ class App extends Component {
         apartments: mockData
       }
   }
+
+    createApartment = (apartment) => {
+      console.log("here",apartment);
+    }
+
   render() {
     const {
       logged_in,
@@ -42,9 +47,11 @@ class App extends Component {
          
 
 
-          <Route  path="/apartmentnew" component={ApartmentNew} />
+          <Route  path="/apartmentnew" 
+            render={ (props) => <ApartmentNew createApartment={this.createApartment} />} 
+            />
 
-          
+
          <Route path="/about" component={About} /> 
         </Switch>
       </Router>
