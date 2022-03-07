@@ -7,6 +7,7 @@ export default class ApartmentShow extends Component {
     console.log(this.props.apartment);
     const { apartment } = this.props
     return (
+      <>
       <Col sm="6">
         <Card body>
           <CardTitle>Street: {apartment.street}!</CardTitle>
@@ -34,6 +35,10 @@ export default class ApartmentShow extends Component {
           </NavLink>
         </Card>
      </Col>
+     <NavLink to={`/apartmentedit/${this.props.apartment.id}`}>
+        <Button>Edit Property</Button>
+    </NavLink>
+     </>
     )
   }
 }

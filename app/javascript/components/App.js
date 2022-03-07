@@ -4,6 +4,7 @@ import Home from './pages/Home'
 import ApartmentIndex from './pages/ApartmentIndex'
 import ApartmentShow from './pages/ApartmentShow'
 import ApartmentNew from './pages/ApartmentNew'
+import ApartmentEdit from './pages/ApartmentEdit'
 import mockData from './mockData'
 import {
   BrowserRouter as  Router,
@@ -20,6 +21,16 @@ class App extends Component {
         apartments: mockData
       }
   }
+
+    createApartment = (apartment) => {
+      console.log("here",apartment);
+    }
+
+    updateApartment = (apt, id) => {
+      console.log("update", apt);
+      console.log("updateID", id);
+    }
+
   render() {
     const {
       logged_in,
@@ -42,9 +53,19 @@ class App extends Component {
          
 
 
-          <Route  path="/apartmentnew" component={ApartmentNew} />
+          <Route  path="/apartmentnew" 
+            render={ (props) => <ApartmentNew createApartment={this.createApartment} />} 
+            />
 
-          
+          <Route  path="/apartmentedit/:id" 
+            render={(props) => {
+              let id = props.match.params.id
+              let apartment = this.state.apartments.find(apt => apt.id === +id)
+              return <ApartmentEdit updateApartment={this.updateApartment} apartment={apartment} />
+          }}
+            />
+
+
          <Route path="/about" component={About} /> 
         </Switch>
       </Router>

@@ -2,40 +2,41 @@ import React, { Component } from 'react'
 import { Form, FormGroup, Label, Input, Button } from 'reactstrap'
 import { Redirect } from 'react-router-dom'
 
-export default class ApartmentNew extends Component {
-  constructor(props){
-    super(props)
-    this.state = {
-      newApartment: {
-        street: "",
-        city: "",
-        state: "",
-        manager: "",
-        email: "",
-        price: "",
-        bedrooms: "",
-        bathrooms: "",
-        pets: ""        
-      },
-      submitted: false
+export default class ApartmentEdit extends Component {
+    constructor(props){
+        super(props)
+        this.state = {
+            newApartment: {
+              street: "",
+              city: "",
+              state: "",
+              manager: "",
+              email: "",
+              price: "",
+              bedrooms: "",
+              bathrooms: "",
+              pets: ""        
+            },
+            submitted: false
+          }
+        }
+
+    handleChange = (e) => {
+        const { newApartment } = this.state
+        newApartment[e.target.name] = e.target.value
+        this.setState({ newApartment: newApartment })
     }
-  }
 
-  handleChange = (e) => {
-    const { newApartment } = this.state
-    newApartment[e.target.name] = e.target.value
-    this.setState({ newApartment: newApartment })
-  }
-
-  handleSubmit = () => {
-    this.props.createApartment(this.state.newApartment)
-    this.setState({ submitted: true })
-  }
+    handleSubmit = () => {
+        this.props.updateApartment(this.state.newApartment, this.props.apartment.id)
+        this.setState({ submitted: true })
+    }
 
   render() {
+      console.log(this.props.apartment);
     return (
-      <>
-      <Form>
+     <>
+          <Form>
           <FormGroup>
             <Label for="street">
               Street Address
@@ -44,7 +45,8 @@ export default class ApartmentNew extends Component {
               name="street"
               type="text"
               onChange={this.handleChange}
-              value={this.state.newApartment.street}
+              value={this.props.apartment.street}
+              
             />
           </FormGroup>
           <FormGroup>
@@ -55,7 +57,7 @@ export default class ApartmentNew extends Component {
               name="city"
               type="text"
               onChange={this.handleChange}
-              value={this.state.newApartment.city}
+              value={this.props.apartment.city}
             />
           </FormGroup>
           <FormGroup>
@@ -66,7 +68,7 @@ export default class ApartmentNew extends Component {
               name="state"
               type="text"
               onChange={this.handleChange}
-              value={this.state.newApartment.state}
+              value={this.props.apartment.state}
             />
           </FormGroup>
           <FormGroup>
@@ -77,7 +79,7 @@ export default class ApartmentNew extends Component {
               name="manager"
               type="text"
               onChange={this.handleChange}
-              value={this.state.newApartment.manager}
+              value={this.props.apartment.manager}
             />
           </FormGroup>
           <FormGroup>
@@ -88,7 +90,7 @@ export default class ApartmentNew extends Component {
               name="email"
               type="text"
               onChange={this.handleChange}
-              value={this.state.newApartment.email}
+              value={this.props.apartment.email}
             />
           </FormGroup>
           <FormGroup>
@@ -99,7 +101,7 @@ export default class ApartmentNew extends Component {
               name="price"
               type="text"
               onChange={this.handleChange}
-              value={this.state.newApartment.price}
+              value={this.props.apartment.price}
             />
           </FormGroup>
           <FormGroup>
@@ -110,7 +112,7 @@ export default class ApartmentNew extends Component {
               name="bedrooms"
               type="number"
               onChange={this.handleChange}
-              value={this.state.newApartment.bedrooms}
+              value={this.props.apartment.bedrooms}
             />
           </FormGroup>
           <FormGroup>
@@ -121,7 +123,7 @@ export default class ApartmentNew extends Component {
               name="bathrooms"
               type="number"
               onChange={this.handleChange}
-              value={this.state.newApartment.bathrooms}
+              value={this.props.apartment.bathrooms}
             />
           </FormGroup>
           <FormGroup>
@@ -132,19 +134,18 @@ export default class ApartmentNew extends Component {
               name="pets"
               type="text"
               onChange={this.handleChange}
-              value={this.state.newApartment.pets}
+              value={this.props.apartment.pets}
             />
           </FormGroup>
           <Button
             name="submit"
             onClick={this.handleSubmit}
-             >
-            Create a New Property
+            >
+            Edit Cat Profile
           </Button>
         </Form>
-        
-        {this.state.submitted && <Redirect to="/apartmentindex" />}
-        </>
+        {this.state.submitted && <Redirect to={`/apartmentshow/${this.props.apartment.id}`} />}
+     </>
     )
   }
 }
