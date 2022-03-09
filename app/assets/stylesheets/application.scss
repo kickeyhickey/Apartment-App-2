@@ -14,3 +14,27 @@
  *= require_self
  */
  @import 'bootstrap';
+
+ main {
+     margin-top: 5vh;
+ }
+
+//  header
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    text-align: center;
+}
+.nav-bar {
+    width: 25%;
+  }
+  .nav-link {
+    color: #4E2780;
+    font-size: 12px;
+  }
+  .nav-link:hover {
+    color: #4E2780;
+    text-decoration: underline;
+  }

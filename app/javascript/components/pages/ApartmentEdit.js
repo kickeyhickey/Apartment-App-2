@@ -7,15 +7,15 @@ export default class ApartmentEdit extends Component {
         super(props)
         this.state = {
             newApartment: {
-              street: "",
-              city: "",
-              state: "",
-              manager: "",
-              email: "",
-              price: "",
-              bedrooms: "",
-              bathrooms: "",
-              pets: ""        
+              street: this.props.apartment.street,
+              city: this.props.apartment.city,
+              state: this.props.apartment.state,
+              manager: this.props.apartment.manager,
+              email: this.props.apartment.email,
+              price: this.props.apartment.price,
+              bedrooms: this.props.apartment.bedrooms,
+              bathrooms: this.props.apartment.bathrooms,
+              pets: this.props.apartment.pets        
             },
             submitted: false
           }
@@ -33,7 +33,7 @@ export default class ApartmentEdit extends Component {
     }
 
   render() {
-      console.log(this.props.apartment);
+      console.log("LOOK",this.props.apartment);
     return (
      <>
           <Form>
@@ -45,7 +45,7 @@ export default class ApartmentEdit extends Component {
               name="street"
               type="text"
               onChange={this.handleChange}
-              value={this.props.apartment.street}
+              value={this.state.newApartment.street}
               
             />
           </FormGroup>
@@ -57,7 +57,7 @@ export default class ApartmentEdit extends Component {
               name="city"
               type="text"
               onChange={this.handleChange}
-              value={this.props.apartment.city}
+              value={this.state.newApartment.city}
             />
           </FormGroup>
           <FormGroup>
@@ -68,7 +68,7 @@ export default class ApartmentEdit extends Component {
               name="state"
               type="text"
               onChange={this.handleChange}
-              value={this.props.apartment.state}
+              value={this.state.newApartment.state}
             />
           </FormGroup>
           <FormGroup>
@@ -79,7 +79,7 @@ export default class ApartmentEdit extends Component {
               name="manager"
               type="text"
               onChange={this.handleChange}
-              value={this.props.apartment.manager}
+              value={this.state.newApartment.manager}
             />
           </FormGroup>
           <FormGroup>
@@ -90,7 +90,7 @@ export default class ApartmentEdit extends Component {
               name="email"
               type="text"
               onChange={this.handleChange}
-              value={this.props.apartment.email}
+              value={this.state.newApartment.email}
             />
           </FormGroup>
           <FormGroup>
@@ -101,7 +101,7 @@ export default class ApartmentEdit extends Component {
               name="price"
               type="text"
               onChange={this.handleChange}
-              value={this.props.apartment.price}
+              value={this.state.newApartment.price}
             />
           </FormGroup>
           <FormGroup>
@@ -112,7 +112,7 @@ export default class ApartmentEdit extends Component {
               name="bedrooms"
               type="number"
               onChange={this.handleChange}
-              value={this.props.apartment.bedrooms}
+              value={this.state.newApartment.bedrooms}
             />
           </FormGroup>
           <FormGroup>
@@ -123,7 +123,7 @@ export default class ApartmentEdit extends Component {
               name="bathrooms"
               type="number"
               onChange={this.handleChange}
-              value={this.props.apartment.bathrooms}
+              value={this.state.newApartment.bathrooms}
             />
           </FormGroup>
           <FormGroup>
@@ -134,7 +134,7 @@ export default class ApartmentEdit extends Component {
               name="pets"
               type="text"
               onChange={this.handleChange}
-              value={this.props.apartment.pets}
+              value={this.state.newApartment.pets}
             />
           </FormGroup>
           <Button
