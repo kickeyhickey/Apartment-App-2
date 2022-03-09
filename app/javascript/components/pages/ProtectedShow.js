@@ -3,6 +3,24 @@ import { Card, CardTitle, Col, CardText, Button } from 'reactstrap'
 import { NavLink } from 'react-router-dom'
 
 export default class ApartmentShow extends Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      submitted: false
+    }
+  }
+
+  handleDelete = () => {
+    if (
+      window.confirm(
+        "Are you sure you want to delete this property profile?"
+      ) === true
+    ) {
+      this.props.deleteApartment(this.props.apartment.id)
+      this.setState({ submitted: true });
+    }
+  };
+
   render() {
     const { apartment } = this.props
     return (
@@ -34,6 +52,14 @@ export default class ApartmentShow extends Component {
           </NavLink>
         </Card>
      </Col>
+     <NavLink to={`/apartmentedit/${this.props.apartment.id}`}>
+        <Button>Edit Property</Button>
+    </NavLink>
+    <NavLink to="/apartmentindex">
+      <Button onClick={this.handleDelete}>
+        Delete Cat Profile
+      </Button>
+    </NavLink>
      </>
     )
   }

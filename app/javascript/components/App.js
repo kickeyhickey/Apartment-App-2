@@ -5,7 +5,10 @@ import ApartmentIndex from './pages/ApartmentIndex'
 import ApartmentShow from './pages/ApartmentShow'
 import ApartmentNew from './pages/ApartmentNew'
 import ApartmentEdit from './pages/ApartmentEdit'
-import mockData from './mockData'
+import Header from './components/Header'
+import ProtectedIndex from './pages/ProtectedIndex'
+import ProtectedShow from './pages/ProtectedShow'
+
 import {
   BrowserRouter as  Router,
   Route,
@@ -13,7 +16,7 @@ import {
 } from 'react-router-dom'
 
 
-
+ 
 class App extends Component {
   constructor(props) {
     super(props)
@@ -39,15 +42,64 @@ class App extends Component {
       })
     }
 
-
-
-    createApartment = (apartment) => {
-      console.log("here",apartment);
+    createApartment = (newApartment) => {
+      fetch("/apartments", {
+        // converting an object to a string
+        body: JSON.stringify(newApartment),
+        // specify the info being sent in JSON and the info returning should be JSON
+        headers: {
+          "Content-Type": "application/json"
+        },
+        // HTTP verb so the correct endpoint is invoked on the server
+        method: "POST"
+      })
+      .then(response => response.json())
+      .then(() => this.readApartment())
+      .catch(errors => console.log("Cat create errors:", errors))
     }
 
-    updateApartment = (apt, id) => {
-      console.log("update", apt);
-      console.log("updateID", id);
+    updateApartment = (apartment, id) => {
+      fetch(`/apartments/${id}`, {
+        body: JSON.stringify(apartment),
+        headers: {
+          "Content-Type": "application/json"
+        },
+        method: "PATCH"
+      })
+      .then(response => {
+        console.log(response)
+        if(response.status === 422){
+          alert("There is something wrong with your submission.")
+        }
+        return response.json()
+      })
+      .then(() => {
+        this.readApartment()
+      })
+      .catch(errors => {
+        console.log("edit errors:", errors)
+      })
+    }
+
+    deleteApartment = (id) => {
+      fetch(`/apartments/${id}`, {
+        headers: {
+          "Content-Type": "application/json"
+        },
+        method: "DELETE"
+      })
+      .then(response => {
+        if(response.status === 422){
+          alert("There is something wrong with your submission.")
+        }
+        return response.json()
+      })
+      .then(() => {
+        this.readApartment()
+      })
+      .catch(errors => {
+        console.log("delete errors:", errors)
+      })
     }
 
   render() {
@@ -58,32 +110,66 @@ class App extends Component {
       sign_in_route,
       sign_out_route
     } = this.props
+    const { apartments } = this.state
     return(
       <>
        <Router>
+         <Header {...this.props} />
         <Switch>
           <Route exact path="/" component={Home} /> 
           <Route path="/apartmentindex" render={(props) => <ApartmentIndex apartments={this.state.apartments} />} />
           <Route  path="/apartmentshow/:id" render={(props) =>{
             let id = props.match.params.id
             let apartment = this.state.apartments.find(apartment => apartment.id === +id)
-            return <ApartmentShow apartment={apartment} />
-          }} />
-         
-
-
-          <Route  path="/apartmentnew" 
-            render={ (props) => <ApartmentNew createApartment={this.createApartment} />} 
+            return <ApartmentShow apartment={apartment} deleteApartment={this.deleteApartment} 
             />
+          }}
+         />
+         
+          ( logged_in &&
+            <Route  path="/protectedshow/:id" render={(props) =>{
+            let id = props.match.params.id
+            let apartment = this.state.apartments.find(apartment => apartment.user_id === +current_user.id)
+            return <ProtectedShow apartment={apartment} deleteApartment={this.deleteApartment} 
+            />
+          }}
+         />
+          )
 
-          <Route  path="/apartmentedit/:id" 
-            render={(props) => {
+         {logged_in &&
+            <Route
+              path="/protectedindex"
+              render={(props) => {
+                let myApartments = apartments.filter(apt => apt.user_id === current_user.id)
+                return <ProtectedIndex myApartments={myApartments} />
+              }}
+            />
+          }
+         
+        { logged_in &&
+          <Route  path="/apartmentnew" 
+            render={(props) => <ApartmentNew createApartment={this.createApartment} current_user={current_user} />} 
+            />
+        }
+
+
+
+          { logged_in &&
+          <Route 
+             path="/apartmentedit/:id" 
+             render={(props) => {
               let id = props.match.params.id
               let apartment = this.state.apartments.find(apt => apt.id === +id)
-              return <ApartmentEdit updateApartment={this.updateApartment} apartment={apartment} />
+              return (
+               <ApartmentEdit
+                updateApartment={this.updateApartment}
+                 apartment={apartment} 
+                 current_user={current_user} 
+               />
+             )
           }}
-            />
-
+         />
+       }
 
          <Route path="/about" component={About} /> 
         </Switch>
