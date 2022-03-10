@@ -14,11 +14,13 @@ export default class ApartmentIndex extends Component {
       <br />
 
       <br />
-      <Col sm="6">
-       {apartments.map(apartment => {
+      <div className='aptList' >
+      <Col sm="6" >
+       {apartments.map((apartment, index) => {
          return(
-           <Card body key={apartment.id}>
-              <CardTitle>
+           <div className="cardList" key={index}>
+           <Card  body key={apartment.id}>
+              <CardTitle >
            <p>{apartment.street}</p>
            </CardTitle>
            <NavLink to={`apartmentshow/${apartment.id}`}>
@@ -27,10 +29,11 @@ export default class ApartmentIndex extends Component {
             </Button>
           </NavLink>
            </Card>
+           </div>
          )
         })}
          </Col>
-       
+         </div>
             
      </>
     )
