@@ -14,11 +14,16 @@
  *= require_self
  */
  @import 'bootstrap';
+ @import './ApartmentIndex.css';
+ @import './ProtectedIndex.css';
+ @import './ProtectedShow.css';
+ @import './ApartmentShow.css';
 
  main {
      margin-top: 5vh;
  }
 
+ 
 //  header
 
 header {
@@ -39,30 +44,3 @@ header {
     text-decoration: underline;
   }
 
-  // apartment index
-
-  .aptList {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    column-gap: 29px;
-
-  }
-  .cardList {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    flex-flow: column wrap;
-    justify-content: space-evenly;
-    margin: auto;
-    margin-bottom: 30px;
-  }
-
-  .cardContent {
-    display: flex;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
-
-  }
