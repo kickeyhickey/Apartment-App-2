@@ -47,6 +47,7 @@ header {
     justify-content: space-around;
     align-items: center;
     column-gap: 29px;
+    text-align: center;
 
   }
   .cardList {
@@ -61,8 +62,6 @@ header {
 
   .cardContent {
     display: flex;
-    align-items: center;
     text-align: center;
     justify-content: center;
-
   }

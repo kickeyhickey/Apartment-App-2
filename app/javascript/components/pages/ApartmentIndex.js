@@ -5,14 +5,11 @@ import { NavLink } from 'react-router-dom'
 
 export default class ApartmentIndex extends Component {
   render() {
-    console.log(this.props.apartments);
     const { apartments } = this.props
     return (
      <>
-     <h2>All Available Properties</h2>
-
+     <h2>Discover Your New Home</h2>
       <br />
-
       <br />
       <div className='aptList' >
       <Col sm="6" >
@@ -21,7 +18,7 @@ export default class ApartmentIndex extends Component {
            <div className="cardList" key={index}>
            <Card  body key={apartment.id}>
               <CardTitle >
-           <p>{apartment.street}</p>
+           <p> {apartment.street}</p>
            </CardTitle>
            <NavLink to={`apartmentshow/${apartment.id}`}>
            <Button>
@@ -31,7 +28,9 @@ export default class ApartmentIndex extends Component {
            </Card>
            </div>
          )
-        })}
+        }
+      )
+     }
          </Col>
          </div>
             
