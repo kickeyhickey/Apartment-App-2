@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Card, CardTitle, Col, CardText, Button } from 'reactstrap'
+import { Card, CardTitle, Col, CardText, Button, CardImg } from 'reactstrap'
 import { NavLink } from 'react-router-dom'
 
 export default class ApartmentShow extends Component {
@@ -25,9 +25,10 @@ export default class ApartmentShow extends Component {
     const { apartment } = this.props
     return (
       <>
-      <Col sm="6">
+      <Col sm="6" className="cardList">
         <Card body>
-          <CardTitle>Street: {apartment.street}</CardTitle>
+        <CardImg top width="100%" src={apartment.pictures} className='cardImage'></CardImg>
+          <CardTitle className='cardTitle'>Street: {apartment.street}</CardTitle>
           <CardText>
           City: {apartment.city}
            <br />
@@ -57,7 +58,7 @@ export default class ApartmentShow extends Component {
     </NavLink>
     <NavLink to="/apartmentindex">
       <Button onClick={this.handleDelete}>
-        Delete Cat Profile
+        Delete Property
       </Button>
     </NavLink>
      </>

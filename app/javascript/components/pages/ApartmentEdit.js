@@ -15,7 +15,8 @@ export default class ApartmentEdit extends Component {
               price: this.props.apartment.price,
               bedrooms: this.props.apartment.bedrooms,
               bathrooms: this.props.apartment.bathrooms,
-              pets: this.props.apartment.pets        
+              pets: this.props.apartment.pets,
+              pictures: this.props.apartment.pictures        
             },
             submitted: false
           }
@@ -137,11 +138,22 @@ export default class ApartmentEdit extends Component {
               value={this.state.newApartment.pets}
             />
           </FormGroup>
+          <FormGroup>
+            <Label for="pictures">
+             Picture URL
+            </Label>
+            <Input
+              name="pictures"
+              type="text"
+              onChange={this.handleChange}
+              value={this.state.newApartment.pictures}
+            />
+          </FormGroup>
           <Button
             name="submit"
             onClick={this.handleSubmit}
             >
-            Edit Cat Profile
+            Edit Property
           </Button>
         </Form>
         {this.state.submitted && <Redirect to={`/apartmentshow/${this.props.apartment.id}`} />}

@@ -1,0 +1,37 @@
+.cardList {
+    box-shadow: rgba(17, 17, 26, 0.8) 0px 0px 16px;
+     margin-bottom: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    justify-content: space-evenly;
+    margin: auto;
+    margin-bottom: 50px;
+    text-align: center;
+}
+.cardImage {
+    box-shadow: rgba(17, 17, 26, 0.8) 0px 0px 16px;
+}
+
+.aptList {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    column-gap: 29px;
+
+  }
+ 
+
+  .cardContent {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+
+  }
+  .cardTitle {
+    font-size: 25px;
+    margin-top: 25px;
+  }
+ 

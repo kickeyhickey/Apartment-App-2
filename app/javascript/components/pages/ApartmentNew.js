@@ -16,6 +16,7 @@ export default class ApartmentNew extends Component {
         bedrooms: "",
         bathrooms: "",
         pets: "",
+        pictures: "",
         user_id: this.props.current_user.id      
       },
       submitted: false
@@ -134,6 +135,17 @@ export default class ApartmentNew extends Component {
               type="text"
               onChange={this.handleChange}
               value={this.state.newApartment.pets}
+            />
+          </FormGroup>
+          <FormGroup>
+            <Label for="pictures">
+              Property URL Picture
+            </Label>
+            <Input
+              name="pictures"
+              type="text"
+              onChange={this.handleChange}
+              value={this.state.newApartment.pictures}
             />
           </FormGroup>
           <Button
