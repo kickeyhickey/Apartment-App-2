@@ -13,7 +13,7 @@ class Header extends Component {
     return (
       <header>
         <div className="nav-bar">
-          <NavLink to="/apartmentindex" className="nav-link">
+          <NavLink to="/" className="nav-link">
             See All the Apartments
           </NavLink>
           {logged_in &&
