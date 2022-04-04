@@ -18,8 +18,21 @@
  @import './ProtectedIndex.css';
  @import './ProtectedShow.css';
  @import './ApartmentShow.css';
+@import './Devise.css';
 
- main {
+
+ 
+.edit-button {
+  width: 1em;
+  margin-left: 10px;
+  margin-bottom: -2px;
+}
+
+.delete-button {
+  margin-left: 0.5rem;
+}
+
+main {
      margin-top: 5vh;
  }
 
@@ -44,3 +57,64 @@ header {
     text-decoration: underline;
   }
 
+// HOME
+
+.home-top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40px;
+  margin-top: 30px;
+}
+
+body {
+  background-repeat: no-repeat;
+  background-size: 120%;
+  background-attachment: fixed;
+  background-position: center;
+  margin: 0;
+  padding: 0;
+}
+
+.flex {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin-left: 1em;
+  margin-right: 1em;
+}
+
+.cardList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: rgba(17, 17, 26, 0.8) 0px 0px 16px;
+  background-color: white;
+  transition: transform 0.7s ease;
+}
+
+.cardList p {
+  margin: 1rem;
+  text-align: right;
+  padding: 0;
+}
+
+.cardList a {
+  text-decoration: none;
+}
+
+.cardImage img {
+  width: 225px;
+  height: 250px;
+  object-fit: cover;
+  box-shadow: 16px 16px 8px -10px var(--accent);
+}
+
+.cardList:hover {
+  transform: scale(1.1);
+}
+
+.site-body {
+  min-height: calc(100vh - 90px);
+}
