@@ -122,3 +122,34 @@ body {
   align-items: center;
   justify-content: center;
 }
+
+// apt new
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: left;
+  align-content: left;
+  justify-content: flex-start;
+  text-align: left;
+}
+
+.input {
+  width: 500px;
+}
+
+.form {
+  margin-top: 100px;
+  margin-bottom: 100px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  text-align: left;
+}
+.form-label {
+  text-align: left;
+}

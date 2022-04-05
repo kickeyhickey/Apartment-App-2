@@ -10,7 +10,7 @@ apartments = [
     price: '1000',
     bedrooms: 2,
     bathrooms: 3,
-    pets: 'all pets welcome'
+    pets: 'all pets welcome',
     pictures: 'https://images1.apartments.com/i2/rqqajQZet7EN8srK-QV16jiFR7HZZQk2ZG78gjuP4Us/117/la-scala-apartments-san-diego-ca-other.jpg'
   },
   {

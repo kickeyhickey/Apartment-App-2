@@ -3,7 +3,7 @@ import { Form, FormGroup, Label, Input, Button } from 'reactstrap'
 import { Redirect } from 'react-router-dom'
 
 export default class ApartmentNew extends Component {
-  constructor(props){
+  constructor(props) {
     super(props)
     this.state = {
       newApartment: {
@@ -17,7 +17,7 @@ export default class ApartmentNew extends Component {
         bathrooms: "",
         pets: "",
         pictures: "",
-        user_id: this.props.current_user.id      
+        user_id: this.props.current_user.id
       },
       submitted: false
     }
@@ -37,12 +37,13 @@ export default class ApartmentNew extends Component {
   render() {
     return (
       <>
-      <Form>
-          <FormGroup>
-            <Label for="street">
+        <Form className='form'>
+          <FormGroup className='form-group'>
+            <Label className='form-label' for="street">
               Street Address
             </Label>
             <Input
+              className='input'
               name="street"
               type="text"
               onChange={this.handleChange}
@@ -54,6 +55,7 @@ export default class ApartmentNew extends Component {
               City
             </Label>
             <Input
+              className='input'
               name="city"
               type="text"
               onChange={this.handleChange}
@@ -65,6 +67,7 @@ export default class ApartmentNew extends Component {
               State
             </Label>
             <Input
+              className='input'
               name="state"
               type="text"
               onChange={this.handleChange}
@@ -76,6 +79,7 @@ export default class ApartmentNew extends Component {
               Manager's Name
             </Label>
             <Input
+              className='input'
               name="manager"
               type="text"
               onChange={this.handleChange}
@@ -87,6 +91,7 @@ export default class ApartmentNew extends Component {
               Manager's Email
             </Label>
             <Input
+              className='input'
               name="email"
               type="text"
               onChange={this.handleChange}
@@ -98,6 +103,7 @@ export default class ApartmentNew extends Component {
               Rental Price
             </Label>
             <Input
+              className='input'
               name="price"
               type="text"
               onChange={this.handleChange}
@@ -109,6 +115,7 @@ export default class ApartmentNew extends Component {
               Bedrooms
             </Label>
             <Input
+              className='input'
               name="bedrooms"
               type="number"
               onChange={this.handleChange}
@@ -120,6 +127,7 @@ export default class ApartmentNew extends Component {
               Bathrooms
             </Label>
             <Input
+              className='input'
               name="bathrooms"
               type="number"
               onChange={this.handleChange}
@@ -131,6 +139,7 @@ export default class ApartmentNew extends Component {
               Are Pets Allowed?
             </Label>
             <Input
+              className='input'
               name="pets"
               type="text"
               onChange={this.handleChange}
@@ -142,6 +151,7 @@ export default class ApartmentNew extends Component {
               Property URL Picture
             </Label>
             <Input
+              className='input'
               name="pictures"
               type="text"
               onChange={this.handleChange}
@@ -149,15 +159,16 @@ export default class ApartmentNew extends Component {
             />
           </FormGroup>
           <Button
+            color='primary'
             name="submit"
             onClick={this.handleSubmit}
-             >
+          >
             Create a New Property
           </Button>
         </Form>
-        
+
         {this.state.submitted && <Redirect to="/apartmentindex" />}
-        </>
+      </>
     )
   }
 }
