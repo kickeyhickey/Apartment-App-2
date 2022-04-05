@@ -8,27 +8,28 @@ export default class ApartmentIndex extends Component {
     const { apartments } = this.props
     return (
      <>
+     <div className="home-top">
      <h2>All Available Properties</h2>
       <br />
       <br />
       <div className='aptList' >
-      <Col sm="6" >
+      <Col sm="6" className="flex">
        {apartments.map((apartment, index) => {
          return(
            <div className="cardList" key={index}>
            <NavLink to={`apartmentshow/${apartment.id}`}>
-           <Card  body key={apartment.id}>
+             <Card  body key={apartment.id}>
              <CardImg className='cardImage' src={apartment.pictures}></CardImg>
               <CardTitle className='cardTitle'>
               {apartment.street}
               </CardTitle>
-           <CardText>
-             City: {apartment.city}
-              <br />
-             State: {apartment.state}
-             <br />
-             Price: {apartment.price}
-             </CardText>
+                <CardText>
+                  City: {apartment.city}
+                    <br />
+                  State: {apartment.state}
+                  <br />
+                  Price: {apartment.price}
+                </CardText>
            </Card>
           </NavLink>
          </div>
@@ -37,6 +38,7 @@ export default class ApartmentIndex extends Component {
      )
   }
          </Col>
+         </div>
          </div>
      </>
     )

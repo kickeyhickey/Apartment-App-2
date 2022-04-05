@@ -15,10 +15,11 @@
  */
  @import 'bootstrap';
  @import './ApartmentIndex.css';
- @import './ProtectedIndex.css';
+ @import './home.scss';
  @import './ProtectedShow.css';
  @import './ApartmentShow.css';
-@import './Devise.css';
+ @import './Devise.css';
+ @import './Header.css';
 
 
  
@@ -30,6 +31,10 @@
 
 .delete-button {
   margin-left: 0.5rem;
+}
+
+h2 {
+  margin-left: auto;
 }
 
 main {
@@ -60,10 +65,9 @@ header {
 // HOME
 
 .home-top {
-  display: flex;
   justify-content: space-between;
   margin-bottom: 40px;
-  margin-top: 30px;
+  margin-top: 100px;
 }
 
 body {
@@ -75,15 +79,7 @@ body {
   padding: 0;
 }
 
-.flex {
-  display: flex;
-  gap: 30px;
-  justify-content: center;
-  flex-wrap: wrap;
-  max-width: 1200px;
-  margin-left: 1em;
-  margin-right: 1em;
-}
+
 
 .cardList {
   display: flex;
@@ -104,8 +100,8 @@ body {
   text-decoration: none;
 }
 
-.cardImage img {
-  width: 225px;
+.cardImage {
+  width: 500px;
   height: 250px;
   object-fit: cover;
   box-shadow: 16px 16px 8px -10px var(--accent);
@@ -117,4 +113,12 @@ body {
 
 .site-body {
   min-height: calc(100vh - 90px);
+}
+
+.flex {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  align-items: center;
+  justify-content: center;
 }
