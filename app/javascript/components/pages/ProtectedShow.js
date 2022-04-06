@@ -34,12 +34,12 @@ export default class ApartmentShow extends Component {
             <br />
             <img
               src={apartment.pictures}
-              width="1200px"
+              width="1000px"
               className="apartment-info-image"
             />
             <h2>
               <strong>
-                {apartment.street}, {apartment.state}
+                {apartment.street}, {apartment.city}
               </strong>
             </h2>
             <ul>

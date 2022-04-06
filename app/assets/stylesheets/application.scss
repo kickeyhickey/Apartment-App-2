@@ -96,9 +96,20 @@ header {
 // apt show
 
 
-.patient-info {
+.apt-info {
   display: flex;
   justify-content: center;
   margin-top: 60px;
   gap: 5em;
+}
+
+.show-div {
+  display: flex;
+  flex-direction: row;
+}
+
+.show-info {
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
 }
