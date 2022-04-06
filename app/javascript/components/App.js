@@ -125,9 +125,9 @@ class App extends Component {
          />
          
           { logged_in &&
-            <Route  path="/protectedshow/:id" render={(props) =>{
+            <Route  path="/protectedshow/:id" render={(props) => {
             let id = props.match.params.id
-            let apartment = this.state.apartments.find(apartment => apartment.user_id === +current_user.id)
+            let apartment = this.state.apartments.find(apartment => apartment.id === +id)
             return <ProtectedShow apartment={apartment} deleteApartment={this.deleteApartment} 
             />
           }}

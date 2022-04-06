@@ -21,7 +21,7 @@ export default class ApartmentShow extends Component {
           />
           <h2>
             <strong>
-              {apartment.street} {apartment.state}
+              {apartment.street}, {apartment.state}
             </strong>
           </h2>
           <ul>
