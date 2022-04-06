@@ -26,7 +26,7 @@ export default class ApartmentShow extends Component {
           </h2>
           <ul>
             {apartment.manager && <li>{apartment.email}</li>}
-          <li> {apartment.price}</li>
+          <li> Price: {apartment.price}</li>
             <li>bathrooms: {apartment.bathrooms}</li>
             <li>bedrooms: {apartment.bedrooms}</li>
             <li>Pets: {apartment.pets}</li>

@@ -167,7 +167,7 @@ export default class ApartmentNew extends Component {
           </Button>
         </Form>
 
-        {this.state.submitted && <Redirect to="/apartmentindex" />}
+        {this.state.submitted && <Redirect to="/protectedindex" />}
       </>
     )
   }

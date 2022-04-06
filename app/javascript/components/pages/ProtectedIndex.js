@@ -15,14 +15,11 @@ export default class ApartmentIndex extends Component {
           <div className='aptList' >
             <Col sm="6" className='flex'>
               {myApartments.map((apartment, index) => {
-                return (
+                return(
                   <div className="cardList" key={index}>
                     <NavLink to={`protectedshow/${apartment.id}`}>
                       <Card body key={apartment.id}>
-                        <CardImg
-                          className='cardImage'
-                          src={apartment.pictures}>
-                        </CardImg>
+                        <CardImg className='cardImage' src={apartment.pictures}></CardImg>
                         <CardTitle className='cardTitle'>
                           <p>{apartment.street}</p>
                         </CardTitle>

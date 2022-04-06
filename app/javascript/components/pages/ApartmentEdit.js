@@ -156,7 +156,7 @@ export default class ApartmentEdit extends Component {
             Edit Property
           </Button>
         </Form>
-        {this.state.submitted && <Redirect to={`/apartmentshow/${this.props.apartment.id}`} />}
+        {this.state.submitted && <Redirect to={`/protectedshow/${this.props.apartment.id}`} />}
      </>
     )
   }

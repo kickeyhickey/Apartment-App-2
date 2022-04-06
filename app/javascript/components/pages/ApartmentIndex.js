@@ -12,7 +12,7 @@ export default class ApartmentIndex extends Component {
       <br />
       <br />
       <div className='aptList' >
-      <Col sm="6" >
+      <Col sm="6" className='flex'>
        {apartments.map((apartment, index) => {
          return(
            <div className="cardList" key={index}>
@@ -20,7 +20,7 @@ export default class ApartmentIndex extends Component {
            <Card  body key={apartment.id}>
              <CardImg className='cardImage' src={apartment.pictures}></CardImg>
               <CardTitle className='cardTitle'>
-              {apartment.street}
+              <p>{apartment.street}</p>
               </CardTitle>
            <CardText>
              City: {apartment.city}

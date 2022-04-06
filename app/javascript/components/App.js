@@ -124,7 +124,7 @@ class App extends Component {
           }}
          />
          
-          ( logged_in &&
+          { logged_in &&
             <Route  path="/protectedshow/:id" render={(props) =>{
             let id = props.match.params.id
             let apartment = this.state.apartments.find(apartment => apartment.user_id === +current_user.id)
@@ -132,9 +132,9 @@ class App extends Component {
             />
           }}
          />
-          )
+        }
 
-         {logged_in &&
+         { logged_in &&
             <Route
               path="/protectedindex"
               render={(props) => {
@@ -149,8 +149,6 @@ class App extends Component {
             render={(props) => <ApartmentNew createApartment={this.createApartment} current_user={current_user} />} 
             />
         }
-
-
 
           { logged_in &&
           <Route 

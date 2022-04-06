@@ -53,7 +53,7 @@ export default class ApartmentShow extends Component {
           <NavLink to={`/apartmentedit/${this.props.apartment.id}`}>
             <Button>Edit Property</Button>
           </NavLink>
-          <NavLink to="/apartmentindex">
+          <NavLink to="/protectedindex">
             <Button
               color='danger'
               onClick={this.handleDelete}>
