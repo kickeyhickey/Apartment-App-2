@@ -34,15 +34,15 @@ export default class ApartmentEdit extends Component {
     }
 
   render() {
-      console.log("LOOK",this.props.apartment);
     return (
      <>
-          <Form>
-          <FormGroup>
-            <Label for="street">
+          <Form className='form'>
+          <FormGroup className='form-group'>
+            <Label className='form-label' for="street">
               Street Address
             </Label>
             <Input
+            className='input'
               name="street"
               type="text"
               onChange={this.handleChange}
@@ -55,6 +55,7 @@ export default class ApartmentEdit extends Component {
               City
             </Label>
             <Input
+            className='input'
               name="city"
               type="text"
               onChange={this.handleChange}
@@ -66,6 +67,7 @@ export default class ApartmentEdit extends Component {
               State
             </Label>
             <Input
+            className='input'
               name="state"
               type="text"
               onChange={this.handleChange}
@@ -77,6 +79,7 @@ export default class ApartmentEdit extends Component {
               Manager's Name
             </Label>
             <Input
+            className='input'
               name="manager"
               type="text"
               onChange={this.handleChange}
@@ -88,6 +91,7 @@ export default class ApartmentEdit extends Component {
               Manager's Email
             </Label>
             <Input
+            className='input'
               name="email"
               type="text"
               onChange={this.handleChange}
@@ -99,6 +103,7 @@ export default class ApartmentEdit extends Component {
               Rental Price
             </Label>
             <Input
+            className='input'
               name="price"
               type="text"
               onChange={this.handleChange}
@@ -110,6 +115,7 @@ export default class ApartmentEdit extends Component {
               Bedrooms
             </Label>
             <Input
+            className='input'
               name="bedrooms"
               type="number"
               onChange={this.handleChange}
@@ -121,6 +127,7 @@ export default class ApartmentEdit extends Component {
               Bathrooms
             </Label>
             <Input
+            className='input'
               name="bathrooms"
               type="number"
               onChange={this.handleChange}
@@ -132,6 +139,7 @@ export default class ApartmentEdit extends Component {
               Are Pets Allowed?
             </Label>
             <Input
+            className='input'
               name="pets"
               type="text"
               onChange={this.handleChange}
@@ -143,6 +151,7 @@ export default class ApartmentEdit extends Component {
              Picture URL
             </Label>
             <Input
+            className='input'
               name="pictures"
               type="text"
               onChange={this.handleChange}
@@ -156,7 +165,7 @@ export default class ApartmentEdit extends Component {
             Edit Property
           </Button>
         </Form>
-        {this.state.submitted && <Redirect to={`/apartmentshow/${this.props.apartment.id}`} />}
+        {this.state.submitted && <Redirect to={`/protectedshow/${this.props.apartment.id}`} />}
      </>
     )
   }

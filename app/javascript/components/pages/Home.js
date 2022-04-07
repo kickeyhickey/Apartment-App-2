@@ -7,38 +7,42 @@ export default class ApartmentIndex extends Component {
   render() {
     const { apartments } = this.props
     return (
-     <>
+     
+     <div className="site-body">
+     <div className="home-top">
      <h2>All Available Properties</h2>
       <br />
       <br />
-      <div className='aptList' >
-      <Col sm="6" >
+      <div className="flex">
        {apartments.map((apartment, index) => {
          return(
-           <div className="cardList" key={index}>
+           <div className="apt-card" key={index}>
            <NavLink to={`apartmentshow/${apartment.id}`}>
-           <Card  body key={apartment.id}>
-             <CardImg className='cardImage' src={apartment.pictures}></CardImg>
+             <div className='cardImage'>
+             <img src={apartment.pictures}></img>
+             </div>
               <CardTitle className='cardTitle'>
-              {apartment.street}
+             <h3>{apartment.street}</h3>
               </CardTitle>
-           <CardText>
-             City: {apartment.city}
-              <br />
-             State: {apartment.state}
-             <br />
-             Price: {apartment.price}
-             </CardText>
-           </Card>
+                <CardText>
+                  <ul>
+                 <li>City: {apartment.city}</li> 
+                    <br />
+                    <li> State: {apartment.state}</li> 
+                  <br />
+                  <li> Price: {apartment.price}</li> 
+                  </ul>
+                </CardText>
           </NavLink>
          </div>
         )
       }
      )
   }
-         </Col>
+  </div>
          </div>
-     </>
+         </div>
+     
     )
   }
 }

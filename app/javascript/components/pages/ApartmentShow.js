@@ -14,23 +14,28 @@ export default class ApartmentShow extends Component {
           </Link>
           <br />
           <br />
+          <div className="show-div">
           <img
             src={apartment.pictures}
-            width="1200px"
+            width="1000px"
             className="apartment-info-image"
           />
+          <div className="show-info">
           <h2>
             <strong>
-              {apartment.street} {apartment.state}
+              {apartment.street}, {apartment.city}, {apartment.state}
             </strong>
           </h2>
           <ul>
-            {apartment.manager && <li>{apartment.email}</li>}
-          <li> {apartment.price}</li>
+            <li> Manager: {apartment.manager}</li>
+            <li> Email: {apartment.email}</li>
+            <li> Price: {apartment.price}</li>
             <li>bathrooms: {apartment.bathrooms}</li>
             <li>bedrooms: {apartment.bedrooms}</li>
             <li>Pets: {apartment.pets}</li>
           </ul>
+          </div>
+        </div>
         </div>
        </section>
         </>

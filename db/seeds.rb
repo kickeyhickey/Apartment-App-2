@@ -10,7 +10,8 @@ apartments = [
     price: '1000',
     bedrooms: 2,
     bathrooms: 3,
-    pets: 'all pets welcome'
+    pets: 'all pets welcome',
+    pictures: 'https://images1.apartments.com/i2/rqqajQZet7EN8srK-QV16jiFR7HZZQk2ZG78gjuP4Us/117/la-scala-apartments-san-diego-ca-other.jpg'
   },
   {
     street: '456 Street',
@@ -21,7 +22,8 @@ apartments = [
     price: '1000',
     bedrooms: 2,
     bathrooms: 3,
-    pets: 'no snakes'
+    pets: 'no snakes',
+    pictures: 'https://images1.apartments.com/i2/K2JBTPd9KDE_dMwah4DYjjYfXllTd22q2YbxOZQoJDU/117/avia-la-jolla-ii-senior-55-community-san-diego-ca-building-photo.jpg'
   }
 ]
 
